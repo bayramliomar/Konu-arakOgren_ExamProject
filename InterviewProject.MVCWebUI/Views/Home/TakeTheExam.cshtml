@@ -1,0 +1,61 @@
+﻿@model List<InterviewProject.Entities.Entities.Question>
+@{
+    ViewData["Title"] = "TakeTheExam";
+    int count = 1;
+}
+
+<style>
+    .span {
+        position: relative;
+        bottom: -2rem;
+        left: 0.5rem;
+    }
+
+    .pl-variat {
+        padding-left: 1.5rem;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form>
+                <input type="hidden" class="eId" value="@Model[0].ExamId" />
+                <div class="form-group row">
+                    <h3 style="text-align: justify;margin:0 auto">@Html.Raw(Model[0].Article.Title)</h3>
+                    <p class="mt-2" style="text-align: justify;margin: 0 auto;height:215px;overflow:auto">@Html.Raw(Model[0].Article.Content)</p>
+                </div>
+                <div class="form-group row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-6">
+                            <p class="mt-4"> @count) @Html.Raw(item.Title)</p>
+                            <div class="mt-2">
+                                <div class="custom-control custom-radio custom-control" style="border: 2px solid black; padding: 3px">
+                                    <input type="radio" id="@String.Format("A{0}",count)" name="@count" class="custom-control-input">
+                                    <label class="custom-control-label" for="@String.Format("A{0}",count)">A) @item.Avariant</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-controls mt-1" style="border: 2px solid black; padding: 3px">
+                                    <input type="radio" id="@String.Format("B{0}",count)" name="@count" class="custom-control-input">
+                                    <label class="custom-control-label" for="@String.Format("B{0}",count)">B) @item.Bvariant</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control mt-1" style="border: 2px solid black; padding: 3px">
+                                    <input type="radio" id="@String.Format("C{0}",count)" name="@count" class="custom-control-input">
+                                    <label class="custom-control-label" for="@String.Format("C{0}",count)">C) @item.Cvariant</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control mt-1" style="border:2px solid black;padding:3px">
+                                    <input type="radio" id="@String.Format("D{0}",count)" name="@count" class="custom-control-input">
+                                    <label class="custom-control-label" for="@String.Format("D{0}",count)">D) @item.Dvariant</label>
+                                </div>
+                            </div>
+                        </div>
+                        count++;
+                    }
+                </div>
+                <div class="form-group row">
+                    <button type="button" style="margin: 0 auto; border-radius: 0" class="btn btn-lg btn-success finishExam">SINAVI TAMAMLA</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

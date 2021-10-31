@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.37" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterviewProject.Dal\InterviewProject.Dal.csproj" />
+    <ProjectReference Include="..\InterviewProject.Entities\InterviewProject.Entities.csproj" />
+    <ProjectReference Include="..\InterviewProject.Interfaces\InterviewProject.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

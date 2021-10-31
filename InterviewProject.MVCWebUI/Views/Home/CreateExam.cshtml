@@ -1,0 +1,160 @@
+﻿@model ExamViewModel
+@{
+    ViewData["Title"] = "CreateExam";
+}
+<style>
+    .span {
+        position: relative;
+        bottom: -2rem;
+        left: 0.5rem;
+    }
+
+    .pl-variat {
+        padding-left: 1.5rem;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="/Home/CreateExam" method="post">
+                <div class="form-group row">
+                    <label for="title">Yazı</label>
+                    <select class="form-control" id="title" required name="ArticleTitle">
+                        <option value="">Yazı Seç</option>
+                        @foreach (var item in Model.Articles)
+                        {
+                            <option value="@item.ID" data-id="@item.ID">@Html.Raw(item.Title)</option>
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.ArticleTitle, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group row">
+                    <textarea class="form-control" id="content" rows="5"></textarea>
+                </div>
+                <div class="form-group row">
+                    @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+                    <textarea class="form-control" required id="Question1" name="Question1" rows="1" placeholder="Soru 1"></textarea>
+                    <div class="col-6">
+                        <span class="span">A)</span> <input required type="text" class="form-control pl-variat AVRT1" name="AVRT1" value="" />
+                        @Html.ValidationMessageFor(model => model.AVRT1, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">B)</span> <input required type="text" class="form-control pl-variat BVRT1" name="BVRT1" value="" />
+                        @Html.ValidationMessageFor(model => model.BVRT1, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">C)</span> <input required type="text" class="form-control pl-variat CVRT1" name="CVRT1" value="" />
+                        @Html.ValidationMessageFor(model => model.CVRT1, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">D)</span> <input required type="text" class="form-control pl-variat DVRT1" name="DVRT1" value="" />
+                        @Html.ValidationMessageFor(model => model.DVRT1, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-4 mt-2" style="margin:0 auto">
+                        <select class="form-control CA1" id="CA1" name="CA1" required>
+                            <option value="">Doğru Cevap Seç</option>
+                            <option value="a">A)</option>
+                            <option value="b">B)</option>
+                            <option value="c">C)</option>
+                            <option value="d">D)</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.CA1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+                    <textarea class="form-control" required id="Question2" rows="1" name="Question2" placeholder="Soru 2"></textarea>
+                    <div class="col-6">
+                        <span class="span">A)</span> <input required type="text" class="form-control pl-variat AVRT2" name="AVRT2" value="" />
+                        @Html.ValidationMessageFor(model => model.AVRT2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">B)</span> <input required type="text" class="form-control pl-variat BVRT2" name="BVRT2" value="" />
+                        @Html.ValidationMessageFor(model => model.BVRT2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">C)</span> <input required type="text" class="form-control pl-variat CVRT2" name="CVRT2" value="" />
+                        @Html.ValidationMessageFor(model => model.CVRT2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">D)</span> <input required type="text" class="form-control pl-variat DVRT2" name="DVRT2" value="" />
+                        @Html.ValidationMessageFor(model => model.DVRT2, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-4 mt-2" style="margin:0 auto">
+                        <select class="form-control CA2" id="CA2" name="CA2" required>
+                            <option value="">Doğru Cevap Seç</option>
+                            <option value="a">A)</option>
+                            <option value="b">B)</option>
+                            <option value="c">C)</option>
+                            <option value="d">D)</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.CA2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+                    <textarea class="form-control" required id="Question3" rows="1" name="Question3" placeholder="Soru 3"></textarea>
+                    <div class="col-6">
+                        <span class="span">A)</span> <input required type="text" class="form-control pl-variat AVRT3" name="AVRT3" value="" />
+                        @Html.ValidationMessageFor(model => model.AVRT3, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">B)</span> <input required type="text" class="form-control pl-variat BVRT3" name="BVRT3" value="" />
+                        @Html.ValidationMessageFor(model => model.BVRT3, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">C)</span> <input required type="text" class="form-control pl-variat CVRT3" name="CVRT3" value="" />
+                        @Html.ValidationMessageFor(model => model.CVRT3, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">D)</span> <input required type="text" class="form-control pl-variat DVRT3" name="DVRT3" value="" />
+                        @Html.ValidationMessageFor(model => model.DVRT3, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-4 mt-2" style="margin:0 auto">
+                        <select class="form-control CA3" id="CA3" name="CA3" required>
+                            <option value="">Doğru Cevap Seç</option>
+                            <option value="a">A)</option>
+                            <option value="b">B)</option>
+                            <option value="c">C)</option>
+                            <option value="d">D)</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.CA3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.ValidationMessageFor(model => model.Question4, "", new { @class = "text-danger" })
+                    <textarea class="form-control" required id="Question4" rows="1" name="Question4" placeholder="Soru 4"></textarea>
+                    <div class="col-6">
+                        <span class="span">A)</span> <input required type="text" class="form-control pl-variat AVRT4" name="AVRT4" value="" />
+                        @Html.ValidationMessageFor(model => model.AVRT4, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">B)</span> <input required type="text" class="form-control pl-variat BVRT4" name="BVRT4" value="" />
+                        @Html.ValidationMessageFor(model => model.BVRT4, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">C)</span> <input required type="text" class="form-control pl-variat CVRT4" name="CVRT4" value="" />
+                        @Html.ValidationMessageFor(model => model.CVRT4, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <span class="span">D)</span> <input required type="text" class="form-control pl-variat DVRT4" name="DVRT4" value="" />
+                        @Html.ValidationMessageFor(model => model.DVRT4, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-4 mt-2" style="margin:0 auto">
+                        <select class="form-control CA4" id="CA4" name="CA4" required>
+                            <option value="">Doğru Cevap Seç</option>
+                            <option value="a">A)</option>
+                            <option value="b">B)</option>
+                            <option value="c">C)</option>
+                            <option value="d">D)</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.CA4, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button type="submit" style="margin: 0 auto; border-radius: 0" class="btn btn-lg btn-success">SINAV OLUŞTUR</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
