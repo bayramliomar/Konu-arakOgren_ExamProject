@@ -23,10 +23,10 @@ namespace InterviewProject.Bll
                 doc.LoadHtml(htmlContent);
                 for (int i = 1; i < 6; i++)
                 {
-                    var anchorElement = doc.DocumentNode.SelectNodes("//*[@id='app-root']/div/div[3]/div/div/div[2]/div[3]/div[1]/div[1]/div/ul/li[" + i + "]/a");
+                    var anchorElement = doc.DocumentNode.SelectNodes("//*[@id='main-content']/div[1]/div[1]/section/div[3]/div/div/div/div/div[" + i +"]/div[2]/a");
                     var href = anchorElement.Select(node => node.GetAttributeValue("href", null));
                     var content = getArticleContent(href.ToList()[0]);
-                    HtmlNode title = doc.DocumentNode.SelectSingleNode("//*[@id='app-root']/div/div[3]/div/div/div[2]/div[3]/div[1]/div[1]/div/ul/li[" + i + "]/a/div[2]/h5");
+                    HtmlNode title = doc.DocumentNode.SelectSingleNode("//*[@id='main-content']/div[1]/div[1]/section/div[3]/div/div/div/div/div[" + i + "]/div[2]/a/h2");
                     article.Content = content;
                     article.Title = title.InnerText;
                     list.Add(article);
